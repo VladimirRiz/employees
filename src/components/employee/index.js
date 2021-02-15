@@ -1,5 +1,6 @@
 import { PureComponent } from "react";
 import { MdDeleteForever } from "react-icons/md";
+import Add from "../add";
 import "./style.css";
 
 class Employee extends PureComponent {
