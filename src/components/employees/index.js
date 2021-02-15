@@ -2,14 +2,46 @@ import { PureComponent } from "react";
 
 class Employees extends PureComponent {
   state = {
-    isLoad: false,
+    isLoaded: false,
     error: null,
-    items: [],
+    userList: [],
   };
+
+  componentDidMount() {
+    fetch("https://reqres.in/api/users?per_page=12")
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            userList: result.data,
+          });
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error,
+          });
+        }
+      );
+  }
+
+  getBody = () => {
+    const { isLoaded, error, userList } = this.state;
+    console.log(userList);
+    if (error) {
+      return <div>Error {error.message}</div>;
+    } else if (!isLoaded) {
+      return <p>Loading...</p>;
+    } else
+      return userList.map((item) => <h3 key={item.id}>{item.first_name}</h3>);
+  };
+
   render() {
     return (
       <div>
         <h1>Employees</h1>
+        {this.getBody()}
       </div>
     );
   }
