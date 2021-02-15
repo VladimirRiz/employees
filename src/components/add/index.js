@@ -5,6 +5,7 @@ import "./style.css";
 class Add extends Component {
   state = {
     value: "",
+    id: 100,
   };
 
   handleChange = ({ target }) => {
@@ -14,12 +15,14 @@ class Add extends Component {
   };
 
   addEmployee = () => {
-    const { value } = this.state;
+    const { value, id } = this.state;
     if (!value) return;
     const user = {
       first_name: value,
+      id,
     };
     this.props.add(user);
+    this.setState((prevState) => ({ id: prevState.id + 1 }));
   };
 
   render() {
