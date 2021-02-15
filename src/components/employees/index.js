@@ -27,6 +27,12 @@ class Employees extends PureComponent {
       );
   }
 
+  removeFromBasket = (index) => {
+    let userList = [...this.state.userList];
+    userList.splice(index, 1);
+    this.setState({ userList });
+  };
+
   getBody = () => {
     const { isLoaded, error, userList } = this.state;
     console.log(userList);
@@ -36,7 +42,13 @@ class Employees extends PureComponent {
       return <p>Loading...</p>;
     } else
       return userList.map((item) => (
-        <Employee key={item.id} name={item.first_name} />
+        <Employee
+          key={item.id}
+          name={item.first_name}
+          remove={this.removeFromBasket}
+          data={userList}
+          obj={item}
+        />
       ));
   };
 
