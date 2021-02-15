@@ -2,6 +2,7 @@ import NavBar from "./navbar";
 import Main from "./mainPage";
 import Employees from "./employees";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./style.css";
 
 const App = () => {
   return (

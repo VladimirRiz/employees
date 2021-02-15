@@ -1,5 +1,7 @@
 import { PureComponent } from "react";
 import Employee from "../employee";
+import Add from "../add";
+import "./style.css";
 
 class Employees extends PureComponent {
   state = {
@@ -33,6 +35,12 @@ class Employees extends PureComponent {
     this.setState({ userList });
   };
 
+  addEmployee = (info) => {
+    let userList = [...this.state.userList];
+    userList.push(info);
+    this.setState({ userList });
+  };
+
   getBody = () => {
     const { isLoaded, error, userList } = this.state;
     console.log(userList);
@@ -54,8 +62,9 @@ class Employees extends PureComponent {
 
   render() {
     return (
-      <div>
+      <div className="employees">
         <h1>Employees</h1>
+        <Add add={this.addEmployee} />
         {this.getBody()}
       </div>
     );
