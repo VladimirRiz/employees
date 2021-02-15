@@ -1,0 +1,26 @@
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+}
+
+a:active {
+  color: grey;
+}
+
+.nav {
+  margin: 1rem;
+  display: flex;
+}
+
+.nav__list {
+  display: flex;
+  list-style: none;
+}
+
+.nav__list_item:not(:first-child) {
+  margin: 0 1rem;
+}
