@@ -1,0 +1,11 @@
+.employee {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+}
+
+.remove {
+  cursor: pointer;
+}
