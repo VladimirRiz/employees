@@ -1,4 +1,5 @@
 import { PureComponent } from "react";
+import Employee from "../employee";
 
 class Employees extends PureComponent {
   state = {
@@ -34,7 +35,9 @@ class Employees extends PureComponent {
     } else if (!isLoaded) {
       return <p>Loading...</p>;
     } else
-      return userList.map((item) => <h3 key={item.id}>{item.first_name}</h3>);
+      return userList.map((item) => (
+        <Employee key={item.id} name={item.first_name} />
+      ));
   };
 
   render() {
