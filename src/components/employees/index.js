@@ -43,7 +43,6 @@ class Employees extends PureComponent {
 
   getBody = () => {
     const { isLoaded, error, userList } = this.state;
-    console.log(userList);
     if (error) {
       return <div>Error {error.message}</div>;
     } else if (!isLoaded) {

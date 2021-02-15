@@ -14,8 +14,10 @@ class Add extends Component {
   };
 
   addEmployee = () => {
+    const { value } = this.state;
+    if (!value) return;
     const user = {
-      first_name: this.state.value,
+      first_name: value,
     };
     this.props.add(user);
   };
